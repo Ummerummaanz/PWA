@@ -19,7 +19,12 @@
     "serve": "oasis-os-cli serve",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest --coverage --ci --maxWorkers=2",
+    "prepare": "npm run compile",
+    "prepublishOnly": "npm run test"
+  },
+  "publishConfig": {
+    "registry": "https://npm-write.synchronoss.net:8443/repository/npm-sncr-private/"
   },
   "featureApp": {
     "port": "#__FEATURE_PORT__#"
@@ -40,6 +45,8 @@
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
+    "@babel/preset-typescript": "^7.12.1",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^7.2.0",
@@ -49,6 +56,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^4.3.8",
+    "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
     "oasis-os-build-scripts": "^1.2.0",
     "prettier": "^2.2.1",
