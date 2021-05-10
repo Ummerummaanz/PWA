@@ -1,7 +1,7 @@
 {
-  "name": "oasis-feature-#__FEATURE_NAME__#",
+  "name": "oasis-feature-__FEATURE_NAME__",
   "version": "0.0.1",
-  "description": "{FEATURE_DESCRIPTION}",
+  "description": "__FEATURE_NAME__",
   "license": "UNLICENSED",
   "directories": {
     "lib": "src",
@@ -12,22 +12,22 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://stash.synchronoss.net/scm/oasis/feature-#__FEATURE_NAME__#.git"
+    "url": "https://stash.synchronoss.net/scm/oasis/feature-__FEATURE_NAME__.git"
   },
   "scripts": {
+    "init": "oasis-os-cli init",
     "compile": "oasis-os-cli build",
     "serve": "oasis-os-cli serve",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix src/**/*.{ts,tsx}",
     "test": "jest --coverage --ci --maxWorkers=2",
-    "prepare": "npm run compile",
     "prepublishOnly": "npm run test"
   },
   "publishConfig": {
     "registry": "https://npm-write.synchronoss.net:8443/repository/npm-sncr-private/"
   },
   "featureApp": {
-    "port": "#__FEATURE_PORT__#"
+    "port": "__FEATURE_PORT__"
   },
   "dependencies": {
     "@ionic/react": "^5.5.4",

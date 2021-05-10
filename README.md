@@ -2,5 +2,9 @@
 
 ## Usage
 
-1. Replace all occurrences of `#__FEATURE_NAME__#` with the name of your feature.
-2. Replace `#__FEATURE_PORT__#` with the port the app will be running on.
+1. Run `yarn install`
+2. Run `yarn run init {name} {port}`
+
+Where `name` is the name of the feature app (i.e. `backup`) and `port` is the port number the feature app will be running on.
+
+The above will have a simple runnable feature app and will also initialize a new git repository pointing to `oasis/feature-{name}`

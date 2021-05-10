@@ -3,7 +3,7 @@
 exports[`Feature should match snapshot 1`] = `
 <div>
   <div>
-    #__FEATURE_NAME__#
+    __FEATURE_NAME__
   </div>
 </div>
 `;
