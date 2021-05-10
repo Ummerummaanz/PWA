@@ -18,6 +18,8 @@
     "./src/**/*.tsx",
     "./typings/**/*.d.ts",
     "./@types/**/*.d.ts",
-    "./src/**/*.json"
+    "./src/**/*.json",
+    "./__tests__/*.tsx",
+    "./__tests__/*.ts"
   ]
 }
