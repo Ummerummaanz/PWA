@@ -45,5 +45,6 @@ module.exports = {
     'import/prefer-default-export': 0,
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
+    '@typescript-eslint/no-unsafe-assignment': 0,
   },
 };
