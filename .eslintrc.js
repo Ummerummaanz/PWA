@@ -46,5 +46,8 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unsafe-assignment': 0,
+    'no-unused-expressions':[1, {
+      'allowShortCircuit': true
+    }]
   },
 };
