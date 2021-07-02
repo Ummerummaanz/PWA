@@ -164,3 +164,93 @@ const Feature: React.FC = () => {
 
 export default Feature;
 ```
+
+## Using API calls in your Feature App
+
+### Setup
+
+API requests require an API token and a user ID. In order to set this up within a local development environment you'd need to request those. This may differ based on the API environment your're calling, by default it's setup for DEV (https://common-coredev-eks-wlpc.cloud.synchronoss.net) which should be fine for most cases.
+
+1. Add `oasis-feature-api` as a dependency.
+
+```bash
+yarn add oasis-feature-api
+```
+
+2. Setup the API client as a shared singleton dependency in `package.json`. if you're unsure of the version to share, just use the same value that is found within `dependencies` section.
+
+```json
+{
+  ...
+
+  "featureApp": {
+    ...
+
+    "shares": {
+      "oasis-feature-api": {
+        "singleton": true,
+        "version": "^0.0.3"
+      }
+    }
+  },
+
+  ...
+}
+```
+
+3. Make a cURL request and generate a new token. You can use a different user ID (X-NewBay-User-Uid header) if you'd like.
+
+```bash
+curl -i -d "grant_type=http%3A%2F%2Fpurl.oclc.org%2Fwebdata%2Fauth%2Fccoe&assertion=enriched" -H "X-NewBay-User-Uid: 100000008" https://common-coredev-eks-wlpc.cloud.synchronoss.net/atp/oauth2/token
+```
+
+4. Extract `access_token` and `lcid` from the JSON response.
+5. Insert the above into `.env.development` file into `API_TOKEN` and `API_USER_ID` variables respectively.
+6. Initialize the API client within `src/app/bootstrap.tsx` file.
+
+```typescript
+import { apiClient } from 'oasis-feature-api';
+
+...
+
+apiClient.init({
+  host: '', // we're proxying through webpack dev server
+  token: process.env.API_TOKEN || '',
+  userId: process.env.API_USER_ID || '',
+  clientPlatform: 'foo',
+  clientIdentifier: 'bar',
+});
+```
+
+### Configuration
+
+
+To use the current dev API environment, define the below variables in .env.development
+
+```typescript
+DEV_SERVER_PROXY_TARGETS=["https://common-coredev-eks-wlpc.cloud.synchronoss.net"]
+DEV_SERVER_PROXY_CONTEXTS=[["/dv"]]
+```
+
+If you'd like to make requests against a different API environment (i.e. QA or any other) you'd have to edit `.env.development` file:
+
+1. Edit the `DEV_SERVER_PROXY_TARGETS` variable. It is an string array of hosts the webpack server will be proxying to localhost.
+2. Edit the `DEV_SERVER_PROXY_CONTEXTS` variable. It is an array of string arrays of endpoints the webpack server will be proxying to localhost. The nested array corresponds to the length of hosts defined in step (1).
+
+For example, if we'd like to proxy https://foo.dev/accounts, https://foo.dev/users and https:/bar.dev/clients we'd have the following setup:
+
+```typescript
+DEV_SERVER_PROXY_TARGETS=["https://foo.dev", "https://bar.dev"]
+DEV_SERVER_PROXY_CONTEXTS=[["/accounts", "/users"], ["/clients"]]
+```
+
+Note that if you have nested endpoint path like `/users/12345/data` you only have to specify the `/users` part
+
+Update the package.json file with the below proxy configuration
+
+```typescript
+"proxy": {
+      "secure": true,
+      "changeOrigin": true
+    }
+```
