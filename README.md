@@ -4,6 +4,12 @@
 
 This repository is a template. You should commit your changes to a separate repository.
 
+#### Fork the repo
+1. Fork the `Feature-template` repo under "Oasis" project
+2. Provide the repo name as `Feature-{name}`
+
+Where `name` is the name of the feature app (i.e. `backup`)
+
 #### 1. Initialize the App
 
 1. Run `yarn install`
@@ -11,7 +17,7 @@ This repository is a template. You should commit your changes to a separate repo
 
 Where `name` is the name of the feature app (i.e. `backup`) and `port` is the port number the feature app will be running on.
 
-The above will have a simple runnable feature app and will also initialize a new git repository pointing to `oasis/feature-{name}`
+The above will have a simple runnable feature app `oasis/feature-{name}`
 
 
 ##### Verify Feature App name
