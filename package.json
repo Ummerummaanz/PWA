@@ -1,5 +1,5 @@
 {
-  "name": "oasis-feature_FEATURE_NAME_",
+  "name": "oasis-feature-__FEATURE_NAME__",
   "version": "0.0.1",
   "description": "__FEATURE_NAME__",
   "license": "UNLICENSED",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://stash.synchronoss.net/scm/oasis/feature_FEATURE_NAME_.git"
+    "url": "https://stash.synchronoss.net/scm/oasis/feature-__FEATURE_NAME__.git"
   },
   "scripts": {
     "init": "oasis-os-cli init",
@@ -28,7 +28,7 @@
     "registry": "https://npm-write.synchronoss.net:8443/repository/npm-sncr-private/"
   },
   "featureApp": {
-    "port": "3000",
+    "port": "__FEATURE_PORT__",
     "env": [
       "CONTENTFUL_TOKEN",
       "CONTENTFUL_SPACE",
