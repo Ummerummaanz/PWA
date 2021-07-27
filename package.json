@@ -40,8 +40,8 @@
     "@ionic/react-router": "^5.6.9",
     "contentful": "^8.3.7",
     "ionicons": "^5.5.1",
-    "oasis-os-contentful": "^2.2.2",
-    "oasis-os-react": "^1.5.2",
+    "oasis-os-contentful": "2.2.6",
+    "oasis-os-react": "1.5.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.2.0",
@@ -75,9 +75,11 @@
     "husky": "^7.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
-    "oasis-os-build-scripts": "^1.5.4",
+    "oasis-auth": "^0.0.2",
+    "oasis-os-build-scripts": "^1.5.5",
     "prettier": "^2.3.1",
-    "typescript": "^4.3.2"
+    "typescript": "^4.3.2",
+    "whatwg-fetch": "^3.6.2"
   },
   "browserslist": {
     "production": [

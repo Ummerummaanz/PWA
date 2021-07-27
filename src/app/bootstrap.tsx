@@ -6,12 +6,33 @@ import { render } from 'react-dom';
 import { IonApp, IonContent, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route, Switch } from 'react-router';
+import { useAuth, authClient, AuthClientMethod, AuthProvider, AuthClient } from 'oasis-auth';
 
 import './theme/development.css';
 
 import App from './FeatureApp';
 
 const root = document.getElementById('root');
+
+/**
+ * Auth config for WL Core dev lab
+ * If using set authEnabled to true and your FA port to 80
+ * If there's a need to change the account or re-login
+ * just clear the browser cache including cookies and re-load
+ */
+const authEnabled = false;
+const authConfig = {
+  host: 'https://common-coredev-eks-wlpc.cloud.synchronoss.net',
+  clientUrl: 'http://localhost',
+  customHeaders: {
+    'X-Client-Identifier': 'pwa',
+    'X-Client-Platform': 'Web',
+    'X-Application-Identifier': 'PWALite218',
+  },
+  method: 'manager' as AuthClientMethod,
+  userReplace: '{userId}',
+  useDB: true,
+};
 
 /**
  * Use a sample Content ID for your Feature App for development
@@ -52,4 +73,34 @@ const DevScaffolding = () => (
   </IonApp>
 );
 
-render(<DevScaffolding />, root);
+const DevScaffoldingWithAuth = () => {
+  const [auth, dispatch] = useAuth();
+  React.useEffect(() => {
+    async function authenticate() {
+      const client: AuthClient = await authClient.init(authConfig, dispatch);
+      if (client) {
+        await client.authenticate();
+      }
+    }
+    if (!auth.authenticated) {
+      authenticate();
+    }
+  }, []);
+  React.useEffect(() => {
+    if (auth.session?.accessToken) {
+      document.cookie = `NWB=${auth.session.accessToken}; expires=Thu, 31 Dec 2021 12:00:00 UTC; path=/`;
+    }
+  }, [auth.session?.accessToken]);
+  return <>{!auth.authenticated ? null : <DevScaffolding />}</>;
+};
+
+if (authEnabled) {
+  render(
+    <AuthProvider>
+      <DevScaffoldingWithAuth />
+    </AuthProvider>,
+    root,
+  );
+} else {
+  render(<DevScaffolding />, root);
+}
