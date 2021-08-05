@@ -32,6 +32,7 @@ const authConfig = {
   method: 'manager' as AuthClientMethod,
   userReplace: '{userId}',
   useDB: true,
+  hostReplace: '{host}'
 };
 
 /**
