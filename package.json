@@ -1,7 +1,7 @@
 {
-  "name": "oasis-feature-__FEATURE_NAME__",
+  "name": "oasis-feature-header-toolbar",
   "version": "0.0.1",
-  "description": "__FEATURE_NAME__",
+  "description": "header-toolbar",
   "license": "UNLICENSED",
   "directories": {
     "lib": "src",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://stash.synchronoss.net/scm/oasis/feature-__FEATURE_NAME__.git"
+    "url": "https://stash.synchronoss.net/scm/oasis/feature-header-toolbar.git"
   },
   "scripts": {
     "init": "oasis-os-cli init",
@@ -25,10 +25,10 @@
     "prepare": "husky install"
   },
   "publishConfig": {
-    "registry": "https://npm-write.synchronoss.net:8443/repository/npm-sncr-private/"
+    "registry": "https://npm-write.synchronoss.net/repository/npm-sncr-private/"
   },
   "featureApp": {
-    "port": "__FEATURE_PORT__",
+    "port": "4031",
     "env": [
       "CONTENTFUL_TOKEN",
       "CONTENTFUL_SPACE",
@@ -42,12 +42,13 @@
     "@ionic/react-router": "^5.6.9",
     "contentful": "^8.3.7",
     "ionicons": "^5.5.1",
-    "oasis-os-contentful": "^2.2.12",
-    "oasis-os-react": "^1.5.10",
+    "oasis-os-contentful": "^2.2.18",
+    "oasis-os-react": "^1.5.16",
+    "oasis-feature-api": "^0.0.35",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.1",
@@ -77,8 +78,8 @@
     "husky": "^7.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.3",
-    "oasis-auth": "^0.0.11",
-    "oasis-os-build-scripts": "^1.5.13",
+    "oasis-auth": "^0.0.12",
+    "oasis-os-build-scripts": "^1.5.18",
     "prettier": "^2.3.1",
     "typescript": "^4.3.2",
     "whatwg-fetch": "^3.6.2"

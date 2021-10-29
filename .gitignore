@@ -35,7 +35,7 @@ yarn-error.log*
 
 # npm lock file
 package-lock.json
-yarn.lock
+
 
 # Project-specific files
 dist

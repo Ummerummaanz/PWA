@@ -3,6 +3,7 @@ import * as React from 'react';
 import { App, ProviderProps } from 'oasis-os-react';
 import { ContentfulProvider } from 'oasis-os-contentful';
 import { Feature } from '../components';
+import '../theme/index.css';
 
 const FeatureApp: React.FC<ProviderProps> = (scaffoldingProps: ProviderProps) => {
   const { id } = scaffoldingProps;

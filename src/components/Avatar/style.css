@@ -1,0 +1,9 @@
+.feature-header-toolbar__avatar {
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+  background-size: cover;
+  margin: 0 16px 0 0;
+  overflow: hidden;
+  border-radius: 50%;
+}

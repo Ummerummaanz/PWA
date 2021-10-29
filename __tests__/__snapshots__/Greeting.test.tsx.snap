@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feature should have greeting message 1`] = `
+<div>
+  <div
+    class="feature-header-toolbar__greeting__message"
+    data-testid="greeting_message"
+  >
+    test
+  </div>
+</div>
+`;
