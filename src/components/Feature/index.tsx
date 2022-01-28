@@ -2,20 +2,12 @@ import * as React from 'react';
 import { useField } from 'oasis-os-contentful';
 import { useEffect } from 'react';
 import { getUserProfile, getUserAvatar, UserAvatarResponse } from 'oasis-feature-api';
+import { ContentfulIcon } from 'oasis-os-theming';
 import Avatar from '../Avatar';
 import Greeting from '../Greeting';
 
-type ImageAsset = {
-  fields: {
-    title: string;
-    file: {
-      url: string;
-    };
-  };
-};
-
 const Feature: React.FC = () => {
-  const defaultAvatar = useField<ImageAsset>('avatar');
+  const defaultAvatar = useField<ContentfulIcon>('avatar');
   const greetingMessage = useField<string>('greeting');
   const [userName, setUserName] = React.useState<string>('');
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
@@ -31,8 +23,12 @@ const Feature: React.FC = () => {
   return (
     <>
       <Avatar
-        url={avatar?.data ? URL.createObjectURL(avatar.data) : defaultAvatar.fields.file.url}
-        name={defaultAvatar.fields.title}
+        url={
+          avatar?.data
+            ? URL.createObjectURL(avatar.data)
+            : defaultAvatar.fields.icon.fields.file.url
+        }
+        name={defaultAvatar.fields.name}
       />
       <Greeting message={`${greetingMessage}${userName}!`} />
     </>

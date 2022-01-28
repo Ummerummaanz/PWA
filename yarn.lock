@@ -5508,7 +5508,7 @@ intl-unofficial-duration-unit-format@^3.1.0:
   resolved "https://npm.synchronoss.net/repository/npms/intl-unofficial-duration-unit-format/-/intl-unofficial-duration-unit-format-3.1.0.tgz#994feefc8d903d9e5044dc7e4e1d38ebad59394b"
   integrity sha512-yjvUDwV63zSGkbeUqpDRJmOgMQoJA8OFhNeo+1KY20q+lFCtcvRWszJNsq/ssrUJRy8g+Mt3BYNfwFvRRSAkow==
 
-ionicons@^5.1.2, ionicons@^5.5.1, ionicons@^5.5.3:
+ionicons@^5.1.2, ionicons@^5.5.3:
   version "5.5.3"
   resolved "https://npm.synchronoss.net/repository/npms/ionicons/-/ionicons-5.5.3.tgz#33cfc4c8a590ac45895f2b10309ef4586ed244c1"
   integrity sha512-L71djrMi8pAad66tpwdnO1vwcyluCFvehzxU1PpH1k/HpYBZhZ5IaYhqXipmqUvu5aEbd4cbRguYyI5Fd4bxTw==
@@ -7224,17 +7224,17 @@ oasis-auth@^0.0.12:
     react "^17.0.1"
     rxjs "^7.2.0"
 
-oasis-feature-api@^0.0.35:
-  version "0.0.35"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.0.35.tgz#5c4df8e2025c4c53454a8a52c7c5ac0428a8bf55"
-  integrity sha512-8wJmeTfyYbbjI2iTE33OoVe+m3Xz1THMcYUT2Oe975g/ksNgXPkxj4wMcdhsptS9Y6QBbXE2L3MUgnRVWbOioQ==
+oasis-feature-api@^0.0.45:
+  version "0.0.45"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.0.45.tgz#029778653add2ada6aed7ea0c0635c9b98edd178"
+  integrity sha512-Nibj6QJdYcyLn2+Ru5GNEd+v/c+u5+gvQjvlm1spUrY/XQ/w4fxZbCiuTO/xL2JxdXT8At06UHjpxu7v0/JGDQ==
   dependencies:
-    oasis-os-utils "^1.4.13"
+    oasis-os-utils "^1.4.18"
 
-oasis-os-build-scripts@^1.5.18:
-  version "1.5.18"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-build-scripts/-/oasis-os-build-scripts-1.5.18.tgz#7e25c749ed5460c256bd8d7f2f426428be6cf1ac"
-  integrity sha512-9ApIARdMVPOXZhM/Aq+MzTREEJZiWXFbO0la+lK6iaXPagq+AsnnqAthQLaJJ6DEWMG9k7YsmdCUorpt+teuRw==
+oasis-os-build-scripts@^1.6.0:
+  version "1.6.0"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-build-scripts/-/oasis-os-build-scripts-1.6.0.tgz#78912a1421e9715fc2d0a384ab131ec03f329ac9"
+  integrity sha512-s1Q8jUZ1xeTRH1VQiQw4belDXjlCFi/3RLNUodCkbiUNyCYQ7KXkNQ/wxru585Yn/6rlMO3KVJ7uMcf86H6fPw==
   dependencies:
     "@svgr/webpack" "^5.5.0"
     "@webpack-cli/serve" "1.5.1"
@@ -7248,8 +7248,8 @@ oasis-os-build-scripts@^1.5.18:
     dotenv-expand "^5.1.0"
     html-webpack-plugin "^5.0.0-beta.6"
     mini-css-extract-plugin "^1.3.1"
-    oasis-os-cli "^1.3.16"
-    oasis-os-utils "^1.4.13"
+    oasis-os-cli "^1.3.21"
+    oasis-os-utils "^1.4.18"
     postcss "^8.2.15"
     postcss-import "^13.0.0"
     postcss-loader "^4.2.0"
@@ -7264,10 +7264,10 @@ oasis-os-build-scripts@^1.5.18:
     webpack-manifest-plugin "^3.1.1"
     webpack-merge "^5.7.3"
 
-oasis-os-cli@^1.3.16:
-  version "1.3.16"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-cli/-/oasis-os-cli-1.3.16.tgz#aaa1fdf6620d6896733a2fe5b36a21a7f021da50"
-  integrity sha512-3E3CrgdlxrsaKrMqs27cUu56pPpRGjSvdTSdEyxVBQdB6nt9ptmAvy4h72OpGCKX3qWsyiXV9vizuzgTQI3B8w==
+oasis-os-cli@^1.3.21:
+  version "1.3.21"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-cli/-/oasis-os-cli-1.3.21.tgz#e6a1d31f05c9460f7f11dd76144f42cf3271230c"
+  integrity sha512-0Dn5ENzomn07BRWRqo6kPB+TIIxkG75fFQsU2tntjq1ZmBSWVczpT141wjuostH+Y6+4A88v24ciXeEbqc6Guw==
   dependencies:
     boxen "^4.2.0"
     chalk "^4.1.0"
@@ -7276,7 +7276,7 @@ oasis-os-cli@^1.3.16:
     copyfiles "^2.4.1"
     dotenv "^9.0.2"
     fs-extra "^9.1.0"
-    oasis-os-utils "^1.4.13"
+    oasis-os-utils "^1.4.18"
 
 oasis-os-contentful@^2.2.18:
   version "2.2.18"
@@ -7294,10 +7294,24 @@ oasis-os-react@^1.5.16:
     oasis-os-utils "^1.4.13"
     rxjs "^6.6.3"
 
+oasis-os-theming@^1.3.0:
+  version "1.3.0"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-theming/-/oasis-os-theming-1.3.0.tgz#5a42187e70d32d8aadee125497ee9d3f05653eb6"
+  integrity sha512-VMLthlXE+vI3DD2IL861if87m36yPgBs4DMmniAxyiAa3IiHGEcuPZHZQg8GYrdbzHY/Ayi0ALtKaHxxRC6Z0A==
+
 oasis-os-utils@^1.4.13, oasis-os-utils@^1.4.9:
   version "1.4.13"
   resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.13.tgz#21751ad3b270a1449101f8d9364674f2fcf4032b"
   integrity sha512-tWJdYDKPIgtBZILZPo3BQW+JyaFFcMD105WIoWoloef8SBx4uKfRzsdy7EXEugAbfMf482eWLXQWlkHwfcyDow==
+  dependencies:
+    idb "^6.1.2"
+    intl-messageformat "^9.9.1"
+    intl-unofficial-duration-unit-format "^3.1.0"
+
+oasis-os-utils@^1.4.18:
+  version "1.4.18"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.18.tgz#af0f9f799bd4d8c1ec1ad69491d76459fdc25141"
+  integrity sha512-U0mcmk81ivYmBsPf/4h69Sif2Am7r28rDSPLA74GYbPZm+te543zWOfgGQTarhgEAZW43pwTrdsye/FSxISGXg==
   dependencies:
     idb "^6.1.2"
     intl-messageformat "^9.9.1"

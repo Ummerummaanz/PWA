@@ -5,9 +5,13 @@ import Feature from '../src/components/Feature';
 
 const defaultAvatar = {
   fields: {
-    title: 'avatar',
-    file: {
-      url: 'https://test/avatar',
+    name: 'avatar',
+    icon: {
+      fields: {
+        file: {
+          url: 'https://test/avatar',
+        },
+      },
     },
   },
 };
