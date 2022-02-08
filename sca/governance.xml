@@ -1,0 +1,29 @@
+<sncr:governance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:sncr="http://synchronoss.com/governance"
+                 xsi:schemaLocation="http://synchronoss.com/governance ./governanceV1.01.xsd"
+                 xsi:noNamespaceSchemaLocation="governanceV1.00.xsd">
+    <sncr:projectName>oasis-feature-header-toolbar</sncr:projectName>
+    <sncr:version>1.2.0</sncr:version>
+    <sncr:jiraProject>WLPWA</sncr:jiraProject>
+    <sncr:application>Web</sncr:application>
+    <sncr:technologyStack>
+        <sncr:technology>
+            <sncr:name>typescript</sncr:name>
+            <sncr:version>4.4.3</sncr:version>
+            <sncr:type>language</sncr:type>
+        </sncr:technology>
+    </sncr:technologyStack>
+    <sncr:dataClassification>
+        <sncr:datatype>
+            <sncr:name>Internal</sncr:name>
+            <sncr:processes>yes</sncr:processes>
+        </sncr:datatype>
+    </sncr:dataClassification>
+    <sncr:risk>
+        <sncr:lifespan>1Year</sncr:lifespan>
+        <sncr:accessibility>External</sncr:accessibility>
+        <sncr:compliance>
+            <sncr:standard>PCI</sncr:standard>
+        </sncr:compliance>
+    </sncr:risk>
+</sncr:governance>

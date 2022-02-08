@@ -1,11 +1,15 @@
-# `welcome screen`
+# Feature Header Toolbar
+  
+## Running port
+4031
 
-> TODO: description
+## Setup
 
-## Usage
+This FA can be configured through contenful via PWA.
 
-```
-const welcome = require('welcome');
+### Contentful model
+https://app.contentful.com/spaces/awihm2bm53tr/environments/dev/content_types/oasisFeatureHeaderToolbar/fields
 
-// TODO: DEMONSTRATE API
-```
+#### Contentful fields
+* Default Avatar
+* Greeting message (localizable)

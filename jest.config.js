@@ -7,6 +7,7 @@ const config = {
   transform: {
     '^.+\\.[jt]sx?$': 'babel-jest',
   },
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!oasis)'],
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
     '\\.css': '<rootDir>/__mocks__/styleMock.js',

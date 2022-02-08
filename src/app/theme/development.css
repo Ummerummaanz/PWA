@@ -1,0 +1,23 @@
+/* This is for development only. Nothing you put here will be built for production. */
+
+/* Ionic Core */
+@import '@ionic/react/css/core.css';
+
+/* CSS normalization (optional, recommended) */
+@import '@ionic/react/css/normalize.css';
+
+/* Default styles for <html> and other CSS defaults. */
+/* Also includes scrolling normalization for mobile devices. */
+/* (optional, recommended) */
+@import '@ionic/react/css/structure.css';
+
+/* Ionic typography */
+/* (optional, recommended) */
+@import '@ionic/react/css/typography.css';
+
+/* Ionic CSS utilities */
+/* https://ionicframework.com/docs/layout/css-utilities */
+@import '@ionic/react/css/padding.css';
+@import '@ionic/react/css/text-alignment.css';
+@import '@ionic/react/css/text-transformation.css';
+@import '@ionic/react/css/display.css';
