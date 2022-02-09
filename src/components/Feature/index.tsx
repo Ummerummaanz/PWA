@@ -5,6 +5,7 @@ import { getUserProfile, getUserAvatar, UserAvatarResponse } from 'oasis-feature
 import { ContentfulIcon } from 'oasis-os-theming';
 import Avatar from '../Avatar';
 import Greeting from '../Greeting';
+import './style.css';
 
 const Feature: React.FC = () => {
   const defaultAvatar = useField<ContentfulIcon>('avatar');
@@ -21,7 +22,7 @@ const Feature: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="feature-header-toolbar__root">
       <Avatar
         url={
           avatar?.data
@@ -31,7 +32,7 @@ const Feature: React.FC = () => {
         name={defaultAvatar.fields.name}
       />
       <Greeting message={`${greetingMessage}${userName}!`} />
-    </>
+    </div>
   );
 };
 
