@@ -5,11 +5,15 @@ import { getUserProfile, getUserAvatar, UserAvatarResponse } from 'oasis-feature
 import { ContentfulIcon } from 'oasis-os-theming';
 import Avatar from '../Avatar';
 import Greeting from '../Greeting';
+import Help from '../Help';
 import './style.css';
 
 const Feature: React.FC = () => {
   const defaultAvatar = useField<ContentfulIcon>('avatar');
   const greetingMessage = useField<string>('greeting');
+  const helpIcon = useField<ContentfulIcon>('helpIcon');
+  const helpRedirectUrl = useField<string>('helpRedirectUrl');
+
   const [userName, setUserName] = React.useState<string>('');
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
 
@@ -32,6 +36,13 @@ const Feature: React.FC = () => {
         name={defaultAvatar.fields.name}
       />
       <Greeting message={`${greetingMessage}${userName}!`} />
+      {helpIcon && (
+        <Help
+          url={helpIcon.fields.icon.fields.file.url}
+          name={helpIcon.fields.name}
+          helpRedirectUrl={helpRedirectUrl}
+        />
+      )}
     </div>
   );
 };
