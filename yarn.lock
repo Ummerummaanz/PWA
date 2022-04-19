@@ -7224,12 +7224,12 @@ oasis-auth@^0.0.12:
     react "^17.0.1"
     rxjs "^7.2.0"
 
-oasis-feature-api@^0.0.45:
-  version "0.0.45"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.0.45.tgz#029778653add2ada6aed7ea0c0635c9b98edd178"
-  integrity sha512-Nibj6QJdYcyLn2+Ru5GNEd+v/c+u5+gvQjvlm1spUrY/XQ/w4fxZbCiuTO/xL2JxdXT8At06UHjpxu7v0/JGDQ==
+oasis-feature-api@^0.2.2:
+  version "0.2.2"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.2.2.tgz#b4cea6aa816a683d0b129e77cdbbc880f4a9e794"
+  integrity sha512-ZtZcQtnT4mCU/PNshEP1bjrw2UhYgMtkYft3hnMfnoNqFvUxRgkyGJjw/3X1MN1+82vR5ivwC1AdyljxESypcQ==
   dependencies:
-    oasis-os-utils "^1.4.18"
+    oasis-os-utils "^1.5.1"
 
 oasis-os-build-scripts@^1.6.4:
   version "1.6.4"
@@ -7308,19 +7308,19 @@ oasis-os-utils@^1.4.13, oasis-os-utils@^1.4.9:
     intl-messageformat "^9.9.1"
     intl-unofficial-duration-unit-format "^3.1.0"
 
-oasis-os-utils@^1.4.18:
-  version "1.4.18"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.18.tgz#af0f9f799bd4d8c1ec1ad69491d76459fdc25141"
-  integrity sha512-U0mcmk81ivYmBsPf/4h69Sif2Am7r28rDSPLA74GYbPZm+te543zWOfgGQTarhgEAZW43pwTrdsye/FSxISGXg==
+oasis-os-utils@^1.4.20:
+  version "1.4.20"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.20.tgz#73a2ee912cf072cbda21e29ea5cd0af7d899d0c5"
+  integrity sha512-x4w+BgY3Mn9SShGtPudosBy/XVLLjXLzkW2pwl/Nct6lNzppX1Wc2GM6KJ8svOMI1JVT/RGUP7QxnZVS5fdl7A==
   dependencies:
     idb "^6.1.2"
     intl-messageformat "^9.9.1"
     intl-unofficial-duration-unit-format "^3.1.0"
 
-oasis-os-utils@^1.4.20:
-  version "1.4.20"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.20.tgz#73a2ee912cf072cbda21e29ea5cd0af7d899d0c5"
-  integrity sha512-x4w+BgY3Mn9SShGtPudosBy/XVLLjXLzkW2pwl/Nct6lNzppX1Wc2GM6KJ8svOMI1JVT/RGUP7QxnZVS5fdl7A==
+oasis-os-utils@^1.5.1:
+  version "1.5.1"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.5.1.tgz#3f917dc3eace81d9889977ed25ce500edb00f27c"
+  integrity sha512-TS/8uOnyg1EtuXbSFdjdOMONNjA42UWI27cjAwzyPFAQAPnjJx9pwWLohwnLFKbAg4W1AakjVg6wZaPfAol5kQ==
   dependencies:
     idb "^6.1.2"
     intl-messageformat "^9.9.1"
