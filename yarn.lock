@@ -7224,12 +7224,12 @@ oasis-auth@^0.0.12:
     react "^17.0.1"
     rxjs "^7.2.0"
 
-oasis-feature-api@^0.2.2:
-  version "0.2.2"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.2.2.tgz#b4cea6aa816a683d0b129e77cdbbc880f4a9e794"
-  integrity sha512-ZtZcQtnT4mCU/PNshEP1bjrw2UhYgMtkYft3hnMfnoNqFvUxRgkyGJjw/3X1MN1+82vR5ivwC1AdyljxESypcQ==
+oasis-feature-api@^0.2.3:
+  version "0.2.3"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-feature-api/-/oasis-feature-api-0.2.3.tgz#584e49aa0c103cb9e2c9c794da6314ae93a8fd2c"
+  integrity sha512-xY0a4jj7Jx02uo0hNb0LNEUSmR3GE/MJ21oIZUADtuV6IFdZ1PVT04Ge0S60hVHqpkqpxrX2lMT2WqBP+qOLYw==
   dependencies:
-    oasis-os-utils "^1.5.1"
+    oasis-os-utils "^1.5.2"
 
 oasis-os-build-scripts@^1.6.4:
   version "1.6.4"
@@ -7312,15 +7312,6 @@ oasis-os-utils@^1.4.9:
   version "1.4.13"
   resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.4.13.tgz#21751ad3b270a1449101f8d9364674f2fcf4032b"
   integrity sha512-tWJdYDKPIgtBZILZPo3BQW+JyaFFcMD105WIoWoloef8SBx4uKfRzsdy7EXEugAbfMf482eWLXQWlkHwfcyDow==
-  dependencies:
-    idb "^6.1.2"
-    intl-messageformat "^9.9.1"
-    intl-unofficial-duration-unit-format "^3.1.0"
-
-oasis-os-utils@^1.5.1:
-  version "1.5.1"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-utils/-/oasis-os-utils-1.5.1.tgz#3f917dc3eace81d9889977ed25ce500edb00f27c"
-  integrity sha512-TS/8uOnyg1EtuXbSFdjdOMONNjA42UWI27cjAwzyPFAQAPnjJx9pwWLohwnLFKbAg4W1AakjVg6wZaPfAol5kQ==
   dependencies:
     idb "^6.1.2"
     intl-messageformat "^9.9.1"
