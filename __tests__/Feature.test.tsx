@@ -17,12 +17,13 @@ const defaultAvatar = {
 };
 
 const file = new File([''], 'avatar.png');
-const apiAvatar = { hashCode: '1234', data: file };
+const avatar = { hashCode: '1234', data: file };
 
 jest.mock('oasis-os-contentful', () => ({
   useField: jest.fn((field: string) => {
     if (field === 'avatar') return defaultAvatar;
     if (field === 'greeting') return 'hello';
+    if (field === 'helpIcon') return defaultAvatar;
     return undefined;
   }),
 }));
@@ -30,7 +31,7 @@ jest.mock('oasis-os-contentful', () => ({
 jest.mock('oasis-feature-api', () => ({
   getUserProfile: jest.fn(),
   getUserAvatar: jest.fn(() => {
-    return Promise.resolve(apiAvatar);
+    return Promise.resolve(avatar);
   }),
 }));
 
@@ -44,10 +45,12 @@ describe('Feature', () => {
         public: { firstName: 'test', hasAvatarImage },
       }),
     );
-    const { container, getByTestId, getByAltText } = render(<Feature />);
+    const avatarMock = jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
+    const { container, getByTestId, findByTestId } = render(<Feature />);
     getByTestId('avatar__image');
     getByTestId('greeting_message');
-    getByAltText('avatar');
+    getByTestId('redirect__url');
+    getByTestId('help__image');
     await waitFor(() => {
       expect(container).toMatchSnapshot();
     });
