@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { render, waitFor } from '@testing-library/react';
-import { getUserProfile } from 'oasis-feature-api';
+import { findByTestId, render, waitFor } from '@testing-library/react';
+import { getUserAvatar, getUserProfile } from 'oasis-feature-api';
 import Feature from '../src/components/Feature';
 
 const defaultAvatar = {
@@ -18,6 +18,7 @@ const defaultAvatar = {
 
 const file = new File([''], 'avatar.png');
 const avatar = { hashCode: '1234', data: file };
+jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
 
 jest.mock('oasis-os-contentful', () => ({
   useField: jest.fn((field: string) => {
@@ -36,6 +37,7 @@ jest.mock('oasis-feature-api', () => ({
 }));
 
 describe('Feature', () => {
+  window.URL.createObjectURL = jest.fn();
   it.each([
     ['with Avatar', true],
     ['without Avatar', false],
@@ -45,8 +47,11 @@ describe('Feature', () => {
         public: { firstName: 'test', hasAvatarImage },
       }),
     );
-    const avatarMock = jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
-    const { container, getByTestId, findByTestId } = render(<Feature />);
+    hasAvatarImage &&
+      (getUserAvatar as jest.Mock).mockReturnValue(
+        Promise.resolve({ hashCode: '1234', data: file }),
+      );
+    const { container, getByTestId } = render(<Feature />);
     getByTestId('avatar__image');
     getByTestId('greeting_message');
     getByTestId('redirect__url');
