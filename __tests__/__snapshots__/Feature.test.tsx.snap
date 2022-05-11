@@ -20,6 +20,21 @@ exports[`Feature should get welcome message with Avatar 1`] = `
     >
       hello!
     </div>
+    <div
+      class="feature-header-toolbar__help"
+    >
+      <a
+        data-testid="redirect__url"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="avatar"
+          data-testid="help__image"
+          src="https://test/avatar"
+        />
+      </a>
+    </div>
   </div>
 </div>
 `;
@@ -43,6 +58,21 @@ exports[`Feature should get welcome message without Avatar 1`] = `
       data-testid="greeting_message"
     >
       hello!
+    </div>
+    <div
+      class="feature-header-toolbar__help"
+    >
+      <a
+        data-testid="redirect__url"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="avatar"
+          data-testid="help__image"
+          src="https://test/avatar"
+        />
+      </a>
     </div>
   </div>
 </div>
