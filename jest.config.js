@@ -14,9 +14,17 @@ const config = {
   },
   collectCoverageFrom: ['./src/**'],
   coveragePathIgnorePatterns: [
-    '<rootDir>/src/index.ts', '<rootDir>/src/app',
-    '<rootDir>/src/components/index.tsx'
+    '<rootDir>/src/index.ts',
+    '<rootDir>/src/app',
+    '<rootDir>/src/components/index.tsx',
   ],
+  testResultsProcessor: 'jest-sonar-reporter',
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      statements: 100,
+    },
+  },
 };
 
 module.exports = config;
