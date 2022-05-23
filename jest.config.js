@@ -12,6 +12,11 @@ const config = {
     '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
     '\\.css': '<rootDir>/__mocks__/styleMock.js',
   },
+  collectCoverageFrom: ['./src/**'],
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/index.ts', '<rootDir>/src/app',
+    '<rootDir>/src/components/index.tsx'
+  ],
 };
 
 module.exports = config;
