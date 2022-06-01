@@ -89,7 +89,7 @@
     "jest-sonar-reporter": "2.0.0",
     "lint-staged": "^10.5.3",
     "oasis-auth": "^0.0.12",
-    "oasis-os-build-scripts": "^1.6.4",
+    "oasis-os-build-scripts": "^1.7.0",
     "prettier": "^2.3.1",
     "sonarqube-scanner": "2.8.1",
     "typescript": "^4.3.2",
