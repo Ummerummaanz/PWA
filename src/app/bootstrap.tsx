@@ -3,7 +3,7 @@
  */
 import * as React from 'react';
 import { render } from 'react-dom';
-import { IonApp, IonContent, IonRouterOutlet } from '@ionic/react';
+import { IonApp, IonContent, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route, Switch } from 'react-router';
 import { useAuth, authClient, AuthClientMethod, AuthProvider, AuthClient } from 'oasis-auth';
@@ -11,6 +11,8 @@ import { useAuth, authClient, AuthClientMethod, AuthProvider, AuthClient } from 
 import './theme/development.css';
 
 import App from './FeatureApp';
+
+setupIonicReact();
 
 const root = document.getElementById('root');
 
