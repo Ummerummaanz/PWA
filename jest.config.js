@@ -1,5 +1,6 @@
 const config = {
   verbose: true,
+  testEnvironment: "jsdom",
   globals: {
     __DEV__: true,
   },
