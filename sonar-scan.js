@@ -12,7 +12,7 @@ const options = {
   'sonar.lang.patterns.ts': '**/*.ts,**/*.tsx',
   'sonar.sources': './src',
   'sonar.exclusions':
-    '**/node_modules/**,**/*.spec.ts,**/*.mock.ts,**/*.html,**/*.scss,**/*.json,**/*.sass',
+    '**/node_modules/**,**/*.spec.ts,**/*.mock.ts,**/*.html,**/*.scss,**/*.json,**/*.sass,**/src/app/**,**/src/index.ts,**/src/components/index.ts',
   'sonar.tests': './__tests__',
   'sonar.test.inclusions': '**/*.test.ts',
   'sonar.typescript.tsconfigPath': 'tsconfig.json',
