@@ -38,7 +38,7 @@ const Feature: React.FC = () => {
         }
         name={defaultAvatar.fields.name}
       />
-      <Greeting message={`${greetingMessage} ${userName}!`} />
+      <Greeting message={`${greetingMessage}${userName}!`} />
       {helpIcon && (
         <Help
           url={helpIcon.fields.icon.fields.file.url}
