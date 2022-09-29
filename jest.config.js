@@ -1,6 +1,6 @@
 const config = {
   verbose: true,
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   globals: {
     __DEV__: true,
   },
@@ -9,7 +9,7 @@ const config = {
     '^.+\\.[jt]sx?$': 'babel-jest',
   },
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/(?!(oasis|@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons|oasis-os-contentful)/)',
+    '<rootDir>/node_modules/(?!(oasis|@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons|oasis-os-contentful|oasis-os-common)/)',
   ],
   moduleNameMapper: {
     '\\.svg$': '<rootDir>/__mocks__/svgrMock.js',
