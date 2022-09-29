@@ -16,6 +16,28 @@ const defaultAvatar = {
   },
 };
 
+
+jest.mock('oasis-os-common', () => ({
+  ...jest.requireActual('oasis-os-common'),
+  Translate: jest.fn(({ id }) => {
+    return { props: { children: "hello" } };
+  }),
+}));
+
+jest.mock('oasis-os-react', () => ({
+  ...jest.requireActual('oasis-os-react'),
+  dispatch: jest.fn(),
+  useAppState: jest.fn(() => {
+    return [
+      undefined,
+      undefined,
+      {
+        meta: { contentId: 'foo' },
+      },
+    ];
+  }),
+}));
+
 const file = new File([''], 'avatar.png');
 const avatar = { hashCode: '1234', data: file };
 jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
