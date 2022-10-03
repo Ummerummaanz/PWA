@@ -18,7 +18,7 @@ const Feature: React.FC = () => {
   const helpRedirectUrl = useField<string>('helpRedirectUrl');
   const [userName, setUserName] = React.useState<string>('');
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
-  const greetingMessage = Translate({ id: `${entryId}.greeting` })?.props?.children as string;
+  const greetingMessage = Translate({ id: `${entryId}.greetingMessage` })?.props?.children as string;
 
   useEffect(() => {
     getUserProfile().then((profile) => {
