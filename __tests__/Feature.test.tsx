@@ -20,7 +20,7 @@ const defaultAvatar = {
 jest.mock('oasis-os-common', () => ({
   ...jest.requireActual('oasis-os-common'),
   Translate: jest.fn(({ id }) => {
-    return { props: { children: "hello" } };
+    return 'Hello';
   }),
 }));
 

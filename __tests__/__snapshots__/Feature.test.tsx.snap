@@ -18,7 +18,9 @@ exports[`Feature should get welcome message with Avatar 1`] = `
       class="feature-header-toolbar__greeting__message"
       data-testid="greeting_message"
     >
-      hello!
+      Hello
+       
+      !
     </div>
     <div
       class="feature-header-toolbar__help"
@@ -57,7 +59,9 @@ exports[`Feature should get welcome message without Avatar 1`] = `
       class="feature-header-toolbar__greeting__message"
       data-testid="greeting_message"
     >
-      hello!
+      Hello
+       
+      !
     </div>
     <div
       class="feature-header-toolbar__help"
