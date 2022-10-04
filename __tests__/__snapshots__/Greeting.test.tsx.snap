@@ -6,7 +6,7 @@ exports[`Feature should have greeting message 1`] = `
     class="feature-header-toolbar__greeting__message"
     data-testid="greeting_message"
   >
-    test
+    hello test
   </div>
 </div>
 `;
