@@ -10,10 +10,8 @@ import './style.css';
 
 const Feature: React.FC = () => {
   const defaultAvatar = useField<ContentfulIcon>('avatar');
-  const greetingMessage = useField<string>('greeting');
   const helpIcon = useField<ContentfulIcon>('helpIcon');
   const helpRedirectUrl = useField<string>('helpRedirectUrl');
-
   const [userName, setUserName] = React.useState<string>('');
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
 
@@ -35,7 +33,7 @@ const Feature: React.FC = () => {
         }
         name={defaultAvatar.fields.name}
       />
-      <Greeting message={`${greetingMessage}${userName}!`} />
+      <Greeting message={`${userName}!`} />
       {helpIcon && (
         <Help
           url={helpIcon.fields.icon.fields.file.url}

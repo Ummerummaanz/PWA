@@ -1,4 +1,6 @@
 .feature-header-toolbar__greeting__message {
   font-size: 1em;
   color: var(--feature-header-toolbar-greeting-message);
+  flex-direction: column;
+  display: inline;
 }
