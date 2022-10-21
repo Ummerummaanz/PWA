@@ -8022,10 +8022,10 @@ oasis-os-cli@^1.3.32:
     fs-extra "^9.1.0"
     oasis-os-utils "^1.6.1"
 
-oasis-os-common@^1.9.1:
-  version "1.9.1"
-  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-common/-/oasis-os-common-1.9.1.tgz#d0920210610dfab04bd8d1c92bec385cc709a52f"
-  integrity sha512-fxZPDV0Eh89uMdkt0K4H3MeLKJJS2qsgJ4/yet3+UdhgSSuVIUvdqiDtPlb+7DLVToA8au/T5JjzF2f4uFPPYg==
+oasis-os-common@^1.9.3:
+  version "1.9.3"
+  resolved "https://npm.synchronoss.net/repository/npms/oasis-os-common/-/oasis-os-common-1.9.3.tgz#7133566dc02942ea3a8ae4c6e71f988047589524"
+  integrity sha512-Mk0Dt8sYVEIvyhWGbbc4jOLnydx1tKDdVgjvxrhM+HPNu5Yp4/fB7sLhyhISjMNWwIJ1zymdqfIswkUBOjmpzg==
   dependencies:
     "@ionic/core" "6.2.2"
     "@ionic/react" "6.2.2"
