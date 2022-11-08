@@ -41,6 +41,47 @@ exports[`Feature should get welcome message with Avatar 1`] = `
 </div>
 `;
 
+exports[`Feature should get welcome message with Upload 1`] = `
+<div>
+  <div
+    class="feature-header-toolbar__root"
+  >
+    <div
+      class="feature-header-toolbar__avatar"
+    >
+      <img
+        alt="avatar"
+        data-testid="avatar__image"
+        src="https://test/avatar"
+      />
+    </div>
+    <div
+      class="feature-header-toolbar__greeting__message"
+      data-testid="greeting_message"
+    >
+      Hello
+       
+      !
+    </div>
+    <div
+      class="feature-header-toolbar__help"
+    >
+      <a
+        data-testid="redirect__url"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img
+          alt="avatar"
+          data-testid="help__image"
+          src="https://test/avatar"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Feature should get welcome message without Avatar 1`] = `
 <div>
   <div
