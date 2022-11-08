@@ -1,0 +1,39 @@
+.feature-header-toolbar__upload {
+    margin-right:24px;
+    .ion-color-button-primary {
+        --ion-color-base: var(--feature-header-toolbar-upload-button-primary);
+    }
+    ion-button {
+        margin: 0;
+        height: var(--feature-header-toolbar-upload-button-height);
+        --border-width: var(--feature-header-toolbar-upload-button-border-width);
+        --box-shadow: var(--feature-header-toolbar-upload-button-box-shadow);
+        --padding-start: var(--feature-header-toolbar-upload-button-padding-start);
+        --padding-end: var(--feature-header-toolbar-upload-button-padding-end);
+        text-transform: none;
+        font-weight: var(--feature-header-toolbar-upload-button-font-weight);
+        font-size: var(--feature-header-toolbar-upload-button-font-size);
+        font-stretch: normal;
+        letter-spacing: normal;
+        ion-icon{
+            margin-right:10px;
+        }
+    }
+    ion-spinner{
+        height: 20px;
+        margin-right:10px;
+    }
+    &__popover{
+        --min-width:360px;
+        --min-height: 0;
+        --box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+        &::part(content) {
+            border: none !important;
+            border-radius: 12px !important;
+            overflow: hidden;
+        }
+        #ion-react-wrapper{
+            overflow:hidden;
+        }
+    }
+}

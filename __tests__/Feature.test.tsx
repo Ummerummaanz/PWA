@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { findByTestId, render, waitFor } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { getUserAvatar, getUserProfile } from 'oasis-feature-api';
+import { EventEmmiter } from 'oasis-os-utils';
 import Feature from '../src/components/Feature';
 
 const defaultAvatar = {
@@ -16,12 +17,20 @@ const defaultAvatar = {
   },
 };
 
-
 jest.mock('oasis-os-common', () => ({
   ...jest.requireActual('oasis-os-common'),
   Translate: jest.fn(({ id }) => {
     return 'Hello';
   }),
+  FileQueue: jest.fn(({ id }) => {
+    return <div data-testid="upload__queue" />;
+  }),
+  uploadClient: {
+    uploader: {
+      getAllItems: () => ['item1', 'item2', 'item3', 'item4'],
+      getNotUploadedItems: () => [],
+    },
+  },
 }));
 
 jest.mock('oasis-os-react', () => ({
@@ -63,6 +72,7 @@ describe('Feature', () => {
   it.each([
     ['with Avatar', true],
     ['without Avatar', false],
+    ['with Upload', false],
   ])('should get welcome message %s', async (_, hasAvatarImage) => {
     (getUserProfile as jest.Mock).mockReturnValue(
       Promise.resolve({
@@ -81,5 +91,21 @@ describe('Feature', () => {
     await waitFor(() => {
       expect(container).toMatchSnapshot();
     });
+  });
+  it('should render with upload if there are files in queue', async () => {
+    jest.useFakeTimers();
+    (getUserProfile as jest.Mock).mockReturnValue(
+      Promise.resolve({
+        public: { firstName: 'test', hasAvatarImage: false },
+      }),
+    );
+    const { getByTestId, findByTestId } = render(<Feature />);
+    getByTestId('avatar__image');
+    getByTestId('greeting_message');
+    getByTestId('redirect__url');
+    getByTestId('help__image');
+    EventEmmiter.emit('uploadQueueChanged', []);
+    jest.runOnlyPendingTimers();
+    await findByTestId('upload-button');
   });
 });
