@@ -33,6 +33,7 @@ const Upload: React.FC = () => {
     <div className="feature-header-toolbar__upload">
       <IonButton
         className="feature-header-toolbar__upload__button"
+        id="upload-button"
         shape="round"
         fill="outline"
         color="button-primary"
