@@ -20,7 +20,7 @@
     "serve": "oasis-os-cli serve",
     "lint": "eslint {src,__tests__,__mocks__}/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix {src,__tests__,__mocks__}/**/*.{ts,tsx}",
-    "test": "jest --updateSnapshot --coverage --ci --maxWorkers=2",
+    "test": "jest --coverage --ci --maxWorkers=2",
     "testScan": "yarn test && yarn sonar",
     "sonar": "node sonar-scan.js",
     "prepublishOnly": "npm run test",
