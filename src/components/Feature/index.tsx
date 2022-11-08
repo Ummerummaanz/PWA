@@ -26,14 +26,9 @@ const Feature: React.FC = () => {
       hasAvatarImage && getUserAvatar().then(setAvatar);
     });
     EventEmmiter.on('uploadQueueChanged', (currentQueue) => {
-      console.log('currentQueue', currentQueue);
-      console.log('uploadClient', uploadClient);
-      console.log('items', uploadClient.uploader.getAllItems());
       setTimeout(() => setFilesInUploadQueue(uploadClient.uploader.getAllItems().length), 100);
     });
   }, []);
-  console.log('avatar', avatar);
-  console.log('filesInUploadQueue', filesInUploadQueue);
 
   return (
     <div className="feature-header-toolbar__root">
