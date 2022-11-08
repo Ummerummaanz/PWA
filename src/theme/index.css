@@ -1,3 +1,11 @@
 :root {
   --feature-header-toolbar-greeting-message: #7988a1;
+  --feature-header-toolbar-upload-button-primary: #0096d5;
+  --feature-header-toolbar-upload-button-height: 44px;
+  --feature-header-toolbar-upload-button-border-width: 1px;
+  --feature-header-toolbar-upload-button-box-shadow: none;
+  --feature-header-toolbar-upload-button-padding-start:1em;
+  --feature-header-toolbar-upload-button-padding-end: 1em;
+  --feature-header-toolbar-upload-button-font-weight: 800;
+  --feature-header-toolbar-upload-button-font-size: 1em;
 }
