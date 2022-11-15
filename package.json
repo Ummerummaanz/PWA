@@ -1,6 +1,6 @@
 {
   "name": "oasis-feature-header-toolbar",
-  "version": "22.10.0",
+  "version": "22.12.0",
   "description": "header-toolbar",
   "license": "UNLICENSED",
   "directories": {
@@ -51,7 +51,7 @@
     "@ionic/react-router": "6.2.2",
     "contentful": "^9.1.33",
     "oasis-feature-api": "^0.5.0",
-    "oasis-os-common": "^1.10.0",
+    "oasis-os-common": "^1.12.3",
     "oasis-os-contentful": "^2.2.46",
     "oasis-os-react": "^1.6.16",
     "oasis-os-theming": "^1.4.1",
@@ -93,7 +93,7 @@
     "jest-sonar-reporter": "2.0.0",
     "lint-staged": "^10.5.3",
     "oasis-auth": "^0.7.6",
-    "oasis-os-build-scripts": "^1.7.3",
+    "oasis-os-build-scripts": "^1.7.8",
     "prettier": "^2.3.1",
     "sonarqube-scanner": "2.8.1",
     "typescript": "^4.3.2",
