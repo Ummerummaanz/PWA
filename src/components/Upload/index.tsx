@@ -1,19 +1,17 @@
 import React from 'react';
 import { IonButton, IonLabel, IonPopover, IonSpinner } from '@ionic/react';
-import { FileQueue, Translate, uploadClient } from 'oasis-os-common';
+import { FileQueue, uploadClient } from 'oasis-os-common';
 
 import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
-import { useAppState } from 'oasis-os-react';
 
 const Upload: React.FC = () => {
-  const [, , app] = useAppState();
-  const entryId = app?.meta?.contentId as string;
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);
   const [remainingFilesToUpload, setRemainingFilesToUpload] = React.useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = React.useState<number>(0);
   React.useEffect(() => {
     EventEmmiter.on('uploadQueueChanged', (currentQueue) => {
+      setUploadOpen(true);
       setRemainingFilesToUpload(uploadClient.uploader.getNotUploadedItems().length);
       setUploadedFiles(
         uploadClient.uploader.getAllItems().length -
@@ -28,6 +26,7 @@ const Upload: React.FC = () => {
       uploadClient.uploader.getAllItems().length -
         uploadClient.uploader.getNotUploadedItems().length,
     );
+    setUploadOpen(true);
   }, []);
   return (
     <div className="feature-header-toolbar__upload">
@@ -48,6 +47,7 @@ const Upload: React.FC = () => {
       </IonButton>
       <IonPopover
         className="feature-header-toolbar__upload__popover"
+        onDidDismiss={() => setTimeout(() => setUploadOpen(false), 100)}
         isOpen={uploadOpen}
         trigger="upload-button"
         side="bottom"

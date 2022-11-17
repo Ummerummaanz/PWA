@@ -19,9 +19,12 @@ jest.mock('oasis-os-common', () => ({
   },
 }));
 
+let mockOnDismiss = false;
+
 jest.mock('@ionic/react', () => ({
   ...jest.requireActual('@ionic/react'),
   IonPopover: (props: any) => {
+    if (mockOnDismiss && props.onDidDismiss) props.onDidDismiss();
     return <div className={props.cssClass}>{props.children}</div>;
   },
 }));
@@ -39,6 +42,17 @@ describe('Help', () => {
     const button = await findByTestId('upload-button');
     fireEvent.click(button);
     await findByTestId('upload-queue');
+  });
+  it('should render upload and open popover on click with not uploaded items and then close it on dismiss', async () => {
+    jest.useFakeTimers();
+    mockNotUploadedItems = ['item1', 'item2'];
+    const { findByTestId, rerender } = render(<Upload />);
+    const button = await findByTestId('upload-button');
+    fireEvent.click(button);
+    await findByTestId('upload-queue');
+    mockOnDismiss = true;
+    rerender(<Upload />);
+    jest.runOnlyPendingTimers();
   });
   it('should render upload and open popover on click with not uploaded items and then close popover on queue update and no items', async () => {
     mockNotUploadedItems = ['item1', 'item2'];
