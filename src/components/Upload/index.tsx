@@ -1,11 +1,24 @@
 import React from 'react';
 import { IonButton, IonLabel, IonPopover, IonSpinner } from '@ionic/react';
-import { FileQueue, uploadClient } from 'oasis-os-common';
+import { FileQueue, Translate, uploadClient } from 'oasis-os-common';
 
 import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
+import { useAppState } from 'oasis-os-react';
+import { useField } from 'oasis-os-contentful';
+
+interface verbiage {
+  uploadContent: {
+    audioRedirectURL: string;
+    photosVideosRedirectURL: string;
+    documentsRedirectURL: string;
+  };
+}
 
 const Upload: React.FC = () => {
+  const [, , app] = useAppState();
+  const entryId = app?.meta?.contentId as string;
+  const verbiage = useField<verbiage>('verbiage');
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);
   const [remainingFilesToUpload, setRemainingFilesToUpload] = React.useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = React.useState<number>(0);
@@ -28,6 +41,7 @@ const Upload: React.FC = () => {
     );
     setUploadOpen(true);
   }, []);
+
   return (
     <div className="feature-header-toolbar__upload">
       <IonButton
@@ -42,7 +56,13 @@ const Upload: React.FC = () => {
         {remainingFilesToUpload > 0 && <IonSpinner name="crescent" />}
         <IonLabel>
           {/* hardcoded as this is not final UI */}
-          {remainingFilesToUpload > 0 ? 'Uploading' : `${uploadedFiles} Uploaded`}
+          {remainingFilesToUpload > 0 ? (
+            <Translate id={`${entryId}.uploadContent.uploadingText`} />
+          ) : (
+            <>
+              {uploadedFiles} <Translate id={`${entryId}.uploadContent.uploadedText`} />
+            </>
+          )}
         </IonLabel>
       </IonButton>
       <IonPopover
@@ -55,7 +75,7 @@ const Upload: React.FC = () => {
         mode="ios"
         arrow
       >
-        <FileQueue />
+        <FileQueue verbiage={verbiage} />
       </IonPopover>
     </div>
   );
