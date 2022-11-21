@@ -6,12 +6,16 @@ import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
 import { useAppState } from 'oasis-os-react';
 import { useField } from 'oasis-os-contentful';
+import { Icon } from 'oasis-os-theming';
 
 interface verbiage {
   uploadContent: {
     audioRedirectURL: string;
     photosVideosRedirectURL: string;
     documentsRedirectURL: string;
+    closeButtonIcon: string;
+    successIcon: string;
+    uploadsIcon: string;
   };
 }
 
@@ -54,13 +58,17 @@ const Upload: React.FC = () => {
         onClick={() => setUploadOpen(true)}
       >
         {remainingFilesToUpload > 0 && <IonSpinner name="crescent" />}
-        <IonLabel>
+        <IonLabel className="feature-header-toolbar__upload__label">
           {/* hardcoded as this is not final UI */}
           {remainingFilesToUpload > 0 ? (
             <Translate id={`${entryId}.uploadContent.uploadingText`} />
           ) : (
             <>
-              {uploadedFiles} <Translate id={`${entryId}.uploadContent.uploadedText`} />
+              <Icon
+                data-testid="upload-file__close-button"
+                icon={verbiage.uploadContent.uploadsIcon}
+              />
+              <Translate id={`${entryId}.uploadContent.uploadedText`} />
             </>
           )}
         </IonLabel>
@@ -75,7 +83,7 @@ const Upload: React.FC = () => {
         mode="ios"
         arrow
       >
-        <FileQueue verbiage={verbiage} />
+        <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
       </IonPopover>
     </div>
   );
