@@ -2,6 +2,7 @@ import * as React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import { getUserAvatar, getUserProfile } from 'oasis-feature-api';
 import { EventEmmiter } from 'oasis-os-utils';
+import * as contentful from 'oasis-os-contentful';
 import Feature from '../src/components/Feature';
 
 const defaultAvatar = {
@@ -14,6 +15,18 @@ const defaultAvatar = {
         },
       },
     },
+  },
+};
+
+let verbiage = {
+  uploadContent: {
+    audioRedirectURL: '/testaudio/all',
+    photosVideosRedirectURL: '/testaudio/all',
+    documentsRedirectURL: '/testaudio/all',
+    closeButtonIcon: 'testicon',
+    successIcon: 'testicon',
+    uploadsIcon: 'testicon',
+    secureFolderRedirectURL: '/testaudio/all',
   },
 };
 
@@ -54,8 +67,8 @@ jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
 jest.mock('oasis-os-contentful', () => ({
   useField: jest.fn((field: string) => {
     if (field === 'avatar') return defaultAvatar;
-    if (field === 'greeting') return 'hello';
     if (field === 'helpIcon') return defaultAvatar;
+    if (field === 'verbiage') return verbiage;
     return undefined;
   }),
 }));
