@@ -16,6 +16,7 @@ interface verbiage {
     closeButtonIcon: string;
     successIcon: string;
     uploadsIcon: string;
+    secureFolderRedirectURL: string;
   };
 }
 
