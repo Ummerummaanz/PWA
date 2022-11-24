@@ -67,7 +67,6 @@ jest.spyOn(React, 'useState').mockReturnValueOnce([avatar, () => jest.fn()]);
 jest.mock('oasis-os-contentful', () => ({
   useField: jest.fn((field: string) => {
     if (field === 'avatar') return defaultAvatar;
-    if (field === 'greeting') return 'hello';
     if (field === 'helpIcon') return defaultAvatar;
     if (field === 'verbiage') return verbiage;
     return undefined;

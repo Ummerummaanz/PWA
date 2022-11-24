@@ -8,7 +8,7 @@ import { useAppState } from 'oasis-os-react';
 import { useField } from 'oasis-os-contentful';
 import { Icon } from 'oasis-os-theming';
 
-interface verbiage {
+interface Verbiage {
   uploadContent: {
     audioRedirectURL: string;
     photosVideosRedirectURL: string;
@@ -23,7 +23,7 @@ interface verbiage {
 const Upload: React.FC = () => {
   const [, , app] = useAppState();
   const entryId = app?.meta?.contentId as string;
-  const verbiage = useField<verbiage>('verbiage');
+  const verbiage = useField<Verbiage>('verbiage');
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);
   const [remainingFilesToUpload, setRemainingFilesToUpload] = React.useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = React.useState<number>(0);
