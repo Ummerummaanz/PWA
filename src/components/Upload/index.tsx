@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonButton, IonLabel, IonPopover, IonSpinner } from '@ionic/react';
-import { Translate, uploadClient } from 'oasis-os-common';
+import { Translate, uploadClient, FileQueue } from 'oasis-os-common';
 
 import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
@@ -19,10 +19,6 @@ interface Verbiage {
     secureFolderRedirectURL: string;
   };
 }
-
-const FileQueue = React.lazy(() =>
-  import('oasis-os-common').then((module) => ({ default: module['FileQueue'] })),
-);
 
 const Upload: React.FC = () => {
   const [, , app] = useAppState();
