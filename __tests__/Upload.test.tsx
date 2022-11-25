@@ -5,6 +5,17 @@ import { EventEmmiter } from 'oasis-os-utils';
 
 let mockAllItems: string[] = ['item1', 'item2', 'item3', 'item4'];
 let mockNotUploadedItems: string[] = [];
+let verbiage = {
+  uploadContent: {
+    audioRedirectURL: '/testaudio/all',
+    photosVideosRedirectURL: '/testaudio/all',
+    documentsRedirectURL: '/testaudio/all',
+    closeButtonIcon: 'testicon',
+    successIcon: 'testicon',
+    uploadsIcon: 'testicon',
+    secureFolderRedirectURL: '/testaudio/all',
+  },
+};
 
 jest.mock('oasis-os-common', () => ({
   ...jest.requireActual('oasis-os-common'),
@@ -17,6 +28,13 @@ jest.mock('oasis-os-common', () => ({
       getNotUploadedItems: () => mockNotUploadedItems,
     },
   },
+}));
+
+jest.mock('oasis-os-contentful', () => ({
+  useField: jest.fn((field: string) => {
+    if (field === 'verbiage') return verbiage;
+    return undefined;
+  }),
 }));
 
 let mockOnDismiss = false;
