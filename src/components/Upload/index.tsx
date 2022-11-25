@@ -1,9 +1,13 @@
 import React from 'react';
 import { IonButton, IonLabel, IonPopover, IonSpinner } from '@ionic/react';
-import { FileQueue, uploadClient } from 'oasis-os-common';
+import { uploadClient } from 'oasis-os-common';
 
 import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
+
+const FileQueue = React.lazy(() =>
+  import('oasis-os-common').then((module) => ({ default: module['FileQueue'] })),
+);
 
 const Upload: React.FC = () => {
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useField } from 'oasis-os-contentful';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getUserProfile, getUserAvatar, UserAvatarResponse } from 'oasis-feature-api';
+import { dispatch } from 'oasis-os-react';
 import { ContentfulIcon } from 'oasis-os-theming';
 import { uploadClient } from 'oasis-os-common';
 import { EventEmmiter } from 'oasis-os-utils';
@@ -10,6 +11,7 @@ import Greeting from '../Greeting';
 import Help from '../Help';
 import './style.css';
 import Upload from '../Upload';
+import { UploadConfig } from '../../types/upload';
 
 const Feature: React.FC = () => {
   const defaultAvatar = useField<ContentfulIcon>('avatar');
@@ -18,6 +20,7 @@ const Feature: React.FC = () => {
   const [userName, setUserName] = React.useState<string>('');
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
   const [filesInUploadQueue, setFilesInUploadQueue] = React.useState<number>(0);
+  const [uploadConfig, setUploadConfig] = useState<UploadConfig['response']['upload']>();
 
   useEffect(() => {
     getUserProfile().then((profile) => {
@@ -28,11 +31,17 @@ const Feature: React.FC = () => {
     EventEmmiter.on('uploadQueueChanged', (currentQueue) => {
       setTimeout(() => setFilesInUploadQueue(uploadClient.uploader.getAllItems().length), 100);
     });
+    async function getUploadConfig() {
+      const featureConfig: UploadConfig[] = await dispatch('*', 'getFeaturesConfig');
+      const uploadConfigRes = featureConfig[0].response?.upload;
+      setUploadConfig(uploadConfigRes);
+    }
+    getUploadConfig();
   }, []);
 
   return (
     <div className="feature-header-toolbar__root">
-      {filesInUploadQueue > 0 && <Upload />}
+      {uploadConfig?.enabled && filesInUploadQueue > 0 && <Upload />}
       <Avatar
         url={
           avatar?.data

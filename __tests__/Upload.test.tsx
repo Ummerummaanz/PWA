@@ -31,14 +31,22 @@ jest.mock('@ionic/react', () => ({
 
 describe('Help', () => {
   it('should render upload and open popover on click', async () => {
-    const { findByTestId, container } = render(<Upload />);
+    const { findByTestId, container } = render(
+      <React.Suspense fallback="upload loading">
+        <Upload />
+      </React.Suspense>,
+    );
     const button = await findByTestId('upload-button');
     fireEvent.click(button);
     await findByTestId('upload-queue');
   });
   it('should render upload and open popover on click with not uploaded items', async () => {
     mockNotUploadedItems = ['item1', 'item2'];
-    const { findByTestId, rerender } = render(<Upload />);
+    const { findByTestId, rerender } = render(
+      <React.Suspense fallback="upload loading">
+        <Upload />
+      </React.Suspense>,
+    );
     const button = await findByTestId('upload-button');
     fireEvent.click(button);
     await findByTestId('upload-queue');
@@ -56,7 +64,11 @@ describe('Help', () => {
   });
   it('should render upload and open popover on click with not uploaded items and then close popover on queue update and no items', async () => {
     mockNotUploadedItems = ['item1', 'item2'];
-    const { findByTestId, rerender } = render(<Upload />);
+    const { findByTestId, rerender } = render(
+      <React.Suspense fallback="upload loading">
+        <Upload />
+      </React.Suspense>,
+    );
     const button = await findByTestId('upload-button');
     fireEvent.click(button);
     await findByTestId('upload-queue');

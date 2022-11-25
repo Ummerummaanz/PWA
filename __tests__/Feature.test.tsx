@@ -33,9 +33,22 @@ jest.mock('oasis-os-common', () => ({
   },
 }));
 
+const mockFeaturesConfig = {
+  response: {
+    upload: {
+      enabled: true,
+    },
+  },
+};
+
+let mockDispatch = jest.fn((_, action) => {
+  if (action === 'getFeaturesConfig') return [mockFeaturesConfig];
+  return null;
+});
+
 jest.mock('oasis-os-react', () => ({
   ...jest.requireActual('oasis-os-react'),
-  dispatch: jest.fn(),
+  dispatch: (id: string, name: string, ...args: unknown[]) => mockDispatch(id, name, ...args),
   useAppState: jest.fn(() => {
     return [
       undefined,
@@ -83,7 +96,11 @@ describe('Feature', () => {
       (getUserAvatar as jest.Mock).mockReturnValue(
         Promise.resolve({ hashCode: '1234', data: file }),
       );
-    const { container, getByTestId } = render(<Feature />);
+    const { container, getByTestId } = render(
+      <React.Suspense fallback="loading">
+        <Feature />
+      </React.Suspense>,
+    );
     getByTestId('avatar__image');
     getByTestId('greeting_message');
     getByTestId('redirect__url');
@@ -99,7 +116,11 @@ describe('Feature', () => {
         public: { firstName: 'test', hasAvatarImage: false },
       }),
     );
-    const { getByTestId, findByTestId } = render(<Feature />);
+    const { getByTestId, findByTestId } = render(
+      <React.Suspense fallback="loading">
+        <Feature />
+      </React.Suspense>,
+    );
     getByTestId('avatar__image');
     getByTestId('greeting_message');
     getByTestId('redirect__url');
