@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonButton, IonLabel, IonPopover, IonSpinner } from '@ionic/react';
-import { Translate, uploadClient, FileQueue } from 'oasis-os-common';
+import { Translate, uploadClient } from 'oasis-os-common';
 
 import './style.css';
 import { EventEmmiter } from 'oasis-os-utils';
@@ -20,6 +20,10 @@ interface Verbiage {
   };
 }
 
+const FileQueue = React.lazy(() =>
+  import('oasis-os-common').then((module) => ({ default: module['FileQueue'] })),
+);
+
 const Upload: React.FC = () => {
   const [, , app] = useAppState();
   const entryId = app?.meta?.contentId as string;
@@ -27,6 +31,7 @@ const Upload: React.FC = () => {
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);
   const [remainingFilesToUpload, setRemainingFilesToUpload] = React.useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = React.useState<number>(0);
+
   React.useEffect(() => {
     EventEmmiter.on('uploadQueueChanged', (currentQueue) => {
       setUploadOpen(true);
@@ -84,7 +89,9 @@ const Upload: React.FC = () => {
         mode="ios"
         arrow
       >
-        <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
+        <React.Suspense fallback={<p>Error loading</p>}>
+          <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
+        </React.Suspense>
       </IonPopover>
     </div>
   );
