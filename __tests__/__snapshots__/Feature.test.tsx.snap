@@ -11,7 +11,9 @@ exports[`Feature should get welcome message with Avatar 1`] = `
       <img
         alt="avatar"
         data-testid="avatar__image"
+        height="44"
         src="https://test/avatar"
+        width="44"
       />
     </div>
     <div
@@ -52,7 +54,9 @@ exports[`Feature should get welcome message with Upload 1`] = `
       <img
         alt="avatar"
         data-testid="avatar__image"
+        height="44"
         src="https://test/avatar"
+        width="44"
       />
     </div>
     <div
@@ -93,7 +97,9 @@ exports[`Feature should get welcome message without Avatar 1`] = `
       <img
         alt="avatar"
         data-testid="avatar__image"
+        height="44"
         src="https://test/avatar"
+        width="44"
       />
     </div>
     <div
