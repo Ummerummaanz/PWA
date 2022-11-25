@@ -31,6 +31,7 @@ const Upload: React.FC = () => {
   const [uploadOpen, setUploadOpen] = React.useState<boolean>(false);
   const [remainingFilesToUpload, setRemainingFilesToUpload] = React.useState<number>(0);
   const [uploadedFiles, setUploadedFiles] = React.useState<number>(0);
+
   React.useEffect(() => {
     EventEmmiter.on('uploadQueueChanged', (currentQueue) => {
       setUploadOpen(true);
@@ -88,7 +89,9 @@ const Upload: React.FC = () => {
         mode="ios"
         arrow
       >
-        <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
+        <React.Suspense fallback={<p>Error loading</p>}>
+          <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
+        </React.Suspense>
       </IonPopover>
     </div>
   );
