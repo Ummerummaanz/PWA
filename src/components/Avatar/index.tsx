@@ -9,7 +9,12 @@ interface Props {
 const Avatar: React.FC<Props> = ({ url, name }: Props) => {
   return (
     <div className="feature-header-toolbar__avatar">
-      <img data-testid="avatar__image" src={url} alt={name} height={44} width={44} />
+      <img
+        data-testid="avatar__image"
+        src={url}
+        alt={name}
+        className="feature-header-toolbar__avatar__image"
+      />
     </div>
   );
 };
