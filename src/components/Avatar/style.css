@@ -7,4 +7,8 @@
   overflow: hidden;
   border-radius: 50%;
   margin-left:24px;
+  &__image {
+    height: 44px;
+    width: 44px;
+  }
 }
