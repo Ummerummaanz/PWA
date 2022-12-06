@@ -23,6 +23,9 @@ interface Verbiage {
 const FileQueue = React.lazy(() =>
   import('oasis-os-common').then((module) => ({ default: module['FileQueue'] })),
 );
+const UploadCancelModal = React.lazy(() =>
+  import('oasis-os-common').then((module) => ({ default: module['UploadCancelModal'] })),
+);
 
 const Upload: React.FC = () => {
   const [, , app] = useAppState();
@@ -93,6 +96,9 @@ const Upload: React.FC = () => {
           <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
         </React.Suspense>
       </IonPopover>
+      <React.Suspense fallback={<p>Error loading</p>}>
+        <UploadCancelModal />
+      </React.Suspense>
     </div>
   );
 };
