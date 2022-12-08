@@ -5,6 +5,7 @@ import { ContentfulProvider } from 'oasis-os-contentful';
 import { Feature } from '../components';
 import '../theme/index.css';
 
+
 const FeatureApp: React.FC<ProviderProps> = (scaffoldingProps: ProviderProps) => {
   const { id } = scaffoldingProps;
 
@@ -16,6 +17,8 @@ const FeatureApp: React.FC<ProviderProps> = (scaffoldingProps: ProviderProps) =>
         {/* This component is where you start building your Feature logic */}
         <Feature />
       </ContentfulProvider>
+
+
     </App>
   );
 };

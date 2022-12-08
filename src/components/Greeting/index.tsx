@@ -1,7 +1,8 @@
 import React from 'react';
-import { Translate } from 'oasis-os-common';
+import { Translate,i18nManager } from 'oasis-os-common';
 import { useAppState } from 'oasis-os-react';
 import './style.css';
+
 
 interface Props {
   message: string;
@@ -13,6 +14,8 @@ const Greeting: React.FC<Props> = ({ message }: Props) => {
   return (
     <div className="feature-header-toolbar__greeting__message" data-testid="greeting_message">
       <Translate id={`${entryId}.greetingMessage`} />&nbsp;{message}
+      
+     
     </div>
   );
 };
