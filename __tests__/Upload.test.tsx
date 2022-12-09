@@ -22,6 +22,9 @@ jest.mock('oasis-os-common', () => ({
   FileQueue: jest.fn(({ id }) => {
     return <div data-testid="upload-queue" />;
   }),
+  UploadCancelModal: jest.fn(({ id }) => {
+    return <div data-testid="upload-cancel" />;
+  }),
   uploadClient: {
     uploader: {
       getAllItems: () => mockAllItems,
