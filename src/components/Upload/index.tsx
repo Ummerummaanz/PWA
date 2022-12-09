@@ -94,11 +94,9 @@ const Upload: React.FC = () => {
       >
         <React.Suspense fallback={<p>Error loading</p>}>
           <FileQueue verbiage={verbiage} setUploadOpen={setUploadOpen} />
+          <UploadCancelModal />
         </React.Suspense>
       </IonPopover>
-      <React.Suspense fallback={<p>Error loading</p>}>
-        <UploadCancelModal />
-      </React.Suspense>
     </div>
   );
 };

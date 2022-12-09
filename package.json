@@ -51,7 +51,7 @@
     "@ionic/react-router": "6.2.2",
     "contentful": "^9.1.33",
     "oasis-feature-api": "^0.5.0",
-    "oasis-os-common": "^1.17.0",
+    "oasis-os-common": "^1.17.1",
     "oasis-os-contentful": "^2.2.46",
     "oasis-os-react": "^1.6.16",
     "oasis-os-theming": "^1.4.1",
