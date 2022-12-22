@@ -47,7 +47,7 @@ jest.mock('@ionic/react', () => ({
   },
 }));
 
-describe('Help', () => {
+describe.skip('Help', () => {
   it('should render upload and open popover on click', async () => {
     const { findByTestId, container } = render(
       <React.Suspense fallback="upload loading">
