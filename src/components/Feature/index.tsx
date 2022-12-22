@@ -14,9 +14,8 @@ import Help from '../Help';
 import Upload from '../Upload';
 import './style.css';
 
-
 const Feature: React.FC = () => {
-  const lng =String;
+
   const defaultAvatar = useField<ContentfulIcon>('avatar');
   const helpIcon = useField<ContentfulIcon>('helpIcon');
   const helpRedirectUrl = useField<string>('helpRedirectUrl');
@@ -24,9 +23,9 @@ const Feature: React.FC = () => {
   const [avatar, setAvatar] = React.useState<UserAvatarResponse>();
   const [filesInUploadQueue, setFilesInUploadQueue] = React.useState<number>(0);
   const [uploadConfig, setUploadConfig] = useState<UploadConfig['response']['upload']>();
-  const [, ,app] =useAppState();
-  
-  
+  const [, , app] = useAppState();
+  // const [locale ,UpdateLocaleInfo]=useState<string>();
+
   useEffect(() => {
     getUserProfile().then((profile) => {
       const { firstName, hasAvatarImage } = profile.public;
@@ -44,84 +43,89 @@ const Feature: React.FC = () => {
     getUploadConfig();
   }, []);
 
-    const handleClick =(locale:String ) =>{
-     if(locale === "chinese") 
-     {
-
-      return dispatch ('*', 'localeInfo', 'en-CH');
+  const handleClick = (locale:String) => {
+    if (locale === 'chinese') {
+      dispatch('*', 'localeInfo', 'en-CH');
     }
-    else if(locale === 'japanese') 
-    {
-      return dispatch ('*', 'localeInfo', 'en-JP');
+    else if (locale === 'japanese') {
+      dispatch('*', 'localeInfo', 'en-JP');
     }
-    else if(locale === 'french')
-     {
-      return dispatch ('*', 'localeInfo', 'en-FR');
+    else if (locale === 'french') {
+      dispatch('*', 'localeInfo', 'en-FR');
     }
     else 
-    dispatch ('*', 'localeInfo','en-US')
+    return dispatch('*', 'localeInfo', 'en-US');
   };
-  // console.log(handleclickLng , "chinese buuton is clicked");
 
 
-
-
- 
   return (
     <div className="feature-header-toolbar__root">
       {uploadConfig?.enabled && filesInUploadQueue > 0 && <Upload />}
-      <IonButton  fill ="clear" id="popover-button">
-      <Avatar
-        url={
-          avatar?.data
-            ? URL.createObjectURL(avatar.data)
-            : defaultAvatar.fields.icon.fields.file.url
-        }
-        name={defaultAvatar.fields.name}
-      />
-      <Greeting message={`${userName}!▼`}/>
-   
-   
-      <IonPopover trigger="popover-button" dismissOnSelect={true}>
-        <IonContent>
-          <IonList>
-            <IonItem button={true} id="nested-trigger" >
-              <IonButton fill="default">Language ❯  </IonButton>
-            </IonItem>
-            <IonItem button={true} detail={false}>
-              Settings
-            </IonItem>
-            <IonItem button={true} detail={false}>
-              Help
-            </IonItem>
-            <IonItem button={true} detail={false}>
-             Logout
-            </IonItem>
+      <IonButton fill="clear" id="popover-button">
+        <Avatar
+          url={
+            avatar?.data
+              ? URL.createObjectURL(avatar.data)
+              : defaultAvatar.fields.icon.fields.file.url
+          }
+          name={defaultAvatar.fields.name}
+        />
+        <Greeting message={`${userName}!▼`} />
 
-            <IonPopover  trigger="nested-trigger" dismissOnSelect={true} side="end">
-              <IonContent>
-                <IonList>
-                  <IonItem button={true } detail={false}>
-                  <IonButton onClick= { ()=> handleClick('english')}>English</IonButton>
-                
-                  </IonItem>
-                  <IonItem button={true} detail={false}>
-                  <IonButton onClick= { ()=> handleClick('japanese')}>Japanese </IonButton>
-                  </IonItem>
-                  <IonItem button={true} detail={false}>
-                  <IonButton onClick= { ()=> handleClick('chinese')}> Chinese</IonButton>
-                  </IonItem>
-                  <IonItem button={true} detail={false}>
-                  <IonButton onClick= { ()=> handleClick('french')}>French </IonButton>                  
-                  </IonItem>
-                </IonList>
-              </IonContent>
-            </IonPopover>
-          </IonList>
-        </IonContent>
-      </IonPopover>
+        <IonPopover trigger="popover-button" dismissOnSelect>
+          <IonContent>
+            <IonList>
+              {/* <IonItem button id="nested-trigger">
+                <IonButton fill="default">Language ❯ </IonButton>
+              </IonItem>
+              <IonItem button detail={false}>
+                Settings
+              </IonItem>
+              <IonItem button detail={false}>
+                Help
+              </IonItem>
+              <IonItem button detail={false}>
+                Logout
+              </IonItem> */}
+
+              <IonItem><button onClick={() => { console.log('English clicked')
+                  handleClick('english') }}> English </button>
+              </IonItem>
+              <IonItem><button onClick={() => {console.log('Chinese Clicked')
+                  handleClick('chinese')}}> Chinese </button>
+              </IonItem>
+              <IonItem ><button onClick={() => {console.log('Japanese Clicked')
+                  handleClick('japanese')}}> Japanese </button>
+              </IonItem>
+
+              <IonItem><button onClick={() => {console.log('French Cllicked')
+                  handleClick('french')}}> French </button>
+
+              </IonItem>
+
+              {/* <IonPopover trigger="nested-trigger" dismissOnSelect side="end">
+                <IonContent>
+                  <IonList>
+                    <IonItem button detail={false}>
+                      <IonButton onClick={() => handleClick('english')}>English</IonButton>
+                    </IonItem>
+                    <IonItem button detail={false}>
+                      <IonButton onClick={() => handleClick('japanese')}>Japanese </IonButton>
+                    </IonItem>
+                    <IonItem button detail={false}>
+                      <IonButton onClick={() => handleClick('chinese')}> Chinese</IonButton>
+                    </IonItem>
+                    <IonItem button detail={false}>
+                      <IonButton onClick={() => handleClick('french')}>French </IonButton>
+                    </IonItem>
+                  </IonList>
+                </IonContent>
+              </IonPopover>*/}
+            </IonList>
+          </IonContent>
+        </IonPopover>
       </IonButton>
- 
+
       {helpIcon && (
         <Help
           url={helpIcon.fields.icon.fields.file.url}
@@ -129,8 +133,6 @@ const Feature: React.FC = () => {
           helpRedirectUrl={helpRedirectUrl}
         />
       )}
-        
-
     </div>
   );
 };
