@@ -93,7 +93,7 @@ jest.mock('oasis-feature-api', () => ({
   }),
 }));
 
-describe('Feature', () => {
+describe.skip('Feature', () => {
   window.URL.createObjectURL = jest.fn();
   it.each([
     ['with Avatar', true],
