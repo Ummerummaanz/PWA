@@ -10,6 +10,7 @@ exports[`Feature should get welcome message with Avatar 1`] = `
     >
       <img
         alt="avatar"
+        class="feature-header-toolbar__avatar__image"
         data-testid="avatar__image"
         src="https://test/avatar"
       />
@@ -51,6 +52,7 @@ exports[`Feature should get welcome message with Upload 1`] = `
     >
       <img
         alt="avatar"
+        class="feature-header-toolbar__avatar__image"
         data-testid="avatar__image"
         src="https://test/avatar"
       />
@@ -92,6 +94,7 @@ exports[`Feature should get welcome message without Avatar 1`] = `
     >
       <img
         alt="avatar"
+        class="feature-header-toolbar__avatar__image"
         data-testid="avatar__image"
         src="https://test/avatar"
       />
